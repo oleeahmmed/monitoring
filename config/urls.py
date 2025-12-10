@@ -16,4 +16,5 @@ urlpatterns = [
 
 # মিডিয়া ফাইল সার্ভ করার জন্য (ডেভেলপমেন্ট মোডে)
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
